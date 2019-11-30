@@ -28,7 +28,8 @@ class App {
   private database (): void {
     mongoose.connect(process.env.MONGO_URI_OFFLINE, {
       useNewUrlParser: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useUnifiedTopology: true
     })
 
     const db = mongoose.connection

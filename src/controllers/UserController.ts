@@ -15,15 +15,25 @@ class UserController {
   }
 
   public async remove (req: Request, res: Response): Promise<Response> {
-    const { cpf } = req.body
+    const cpf:string = req.body.cpf
 
     try {
       await User.findOneAndDelete({ cpf: cpf })
-    } catch (Err) {
-      return res.status(500).json({ msg: 'erro ao excluir' })
+    } catch (err) {
+      return res.status(500).json({ error: err })
     }
 
     res.json({ msg: 'Sucesso ao excluir o registro' })
+  }
+
+  public async update (req: Request, res: Response): Promise<Response> {
+    try {
+      await User.findOneAndUpdate({ cpf: req.body.cpf }, req.body)
+    } catch (error) {
+      return res.json({ error: error })
+    }
+    const user = await User.findOne({ cpf: req.body.cpf })
+    return res.json({ msg: 'Sucesso ao atualizar o registro', reg: user })
   }
 }
 
