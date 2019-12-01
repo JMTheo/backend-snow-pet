@@ -1,11 +1,11 @@
 import { Document, Schema, Model, model } from 'mongoose'
-import { UserInterface } from '../interfaces/user'
+import { UserInterface } from '../interfaces/User'
 
 export interface UserModel extends UserInterface, Document {
   fullName(): string
 }
 
-const UserSchema = new Schema({
+const UserSchema: Schema = new Schema({
   nome: { type: String, required: true },
   cpf: { type: String, index: true, unique: true },
   telefone: { type: String, required: true },
