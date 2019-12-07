@@ -7,7 +7,3 @@ Api rest desenvolvido para servir a aplicação Snow Pet
 + Express
 + Typescript
 + Mongo
-+ GraphQL
-
-### Todo
-+ Excluir o rest que ja foi implementado com GraphQL
