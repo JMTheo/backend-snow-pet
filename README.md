@@ -7,3 +7,7 @@ Api rest desenvolvido para servir a aplicação Snow Pet
 + Express
 + Typescript
 + Mongo
+<<<<<<< HEAD
+=======
++ GraphQL
+>>>>>>> parent of 9f06e37... adicionando suporte ao GraphQL
