@@ -14,8 +14,16 @@ class UserController {
     return res.json(user)
   }
 
+  public async find (req: Request, res: Response): Promise<Response> {
+    const cpf:string = req.params.cpf
+
+    const user = await User.findOne({ cpf: cpf })
+
+    return res.json(user)
+  }
+
   public async remove (req: Request, res: Response): Promise<Response> {
-    const cpf:string = req.body.cpf
+    const cpf:string = req.params.cpf
 
     try {
       await User.findOneAndDelete({ cpf: cpf })

@@ -9,10 +9,6 @@ const UserSchema = new Schema({
   nome: { type: String, required: true },
   cpf: { type: String, index: true, unique: true },
   telefone: { type: String, required: true },
-  login: {
-    email: { type: String },
-    password: { type: String }
-  },
   cachorro: {
     raca: { type: String, required: true },
     porte: {

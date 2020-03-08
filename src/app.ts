@@ -26,7 +26,7 @@ class App {
   }
 
   private database (): void {
-    mongoose.connect(process.env.MONGO_URI_OFFLINE, {
+    mongoose.connect(process.env.MONGO_URI_ONLINE, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true
