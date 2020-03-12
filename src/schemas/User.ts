@@ -7,15 +7,15 @@ export interface UserModel extends UserInterface, Document {
 
 const UserSchema = new Schema({
   nome: { type: String, required: true },
-  cpf: { type: String, index: true, unique: true },
-  telefone: { type: String, required: true },
+  cpf: { type: String, unique: true },
+  telefone: { type: String, required: true, index: true },
   cachorro: {
-    raca: { type: String, required: true },
     porte: {
       type: String,
       enum: ['pequeno', 'medio', 'grande']
     },
-    nomeCachorro: String
+    nomeCachorro: String,
+    raca: { type: String, required: true }
   }
 },
 {

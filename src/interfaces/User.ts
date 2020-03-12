@@ -9,8 +9,12 @@ export interface UserInterface {
   cpf: string
   telefone?: string
   cachorro: {
-    raca: string,
-    porte: porteC,
+    raca: string
+    porte: porteC
     nomeCachorro: string
+    pacoteBanho: {
+      qtdBanhos: number
+      diaContrato: Date
+    }
   }
 }
