@@ -1,8 +1,7 @@
 import { Document, Schema, Model, model } from 'mongoose'
 import { AgendaInterface } from '../interfaces/Agenda'
 
-export interface AgendaModel extends AgendaInterface, Document {
-}
+export interface AgendaModel extends AgendaInterface, Document {}
 
 const AgendaSchema = new Schema({
   data: Date,
@@ -14,7 +13,8 @@ const AgendaSchema = new Schema({
   },
   pacoteBanho: {
     qtdBanhos: Number,
-    diaContrato: Date // A definir melhor a forma de guardar a data
+    diaContrato: Date, // A definir melhor a forma de guardar a data
+    bonus: Boolean
   }
 })
 

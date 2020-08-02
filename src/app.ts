@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import { config, DotenvConfigOutput } from 'dotenv'
 import morgan from 'morgan'
+import compression from 'compression'
 
 import routes from './routes'
 
@@ -20,8 +21,9 @@ class App {
   }
 
   private middlewares (): void {
-    this.express.use(express.json())
+    this.express.use(compression())
     this.express.use(cors())
+    this.express.use(express.json())
     this.express.use(morgan('dev'))
   }
 

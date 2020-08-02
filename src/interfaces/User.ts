@@ -14,7 +14,8 @@ export interface UserInterface {
     nomeCachorro: string
     pacoteBanho: {
       qtdBanhos: number
-      diaContrato: Date
+      limiteMaximo: Date
+      bonus: boolean
     }
   }
 }

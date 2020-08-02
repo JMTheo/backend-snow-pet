@@ -9,24 +9,31 @@ class UserController {
   }
 
   public async store (req: Request, res: Response): Promise<Response> {
-    const user = await User.create(req.body)
-
-    return res.json(user)
+    try {
+      const user = await User.create(req.body)
+      return res.json(user)
+    } catch (error) {
+      return res.status(400).send(`Erro ao cadastrar: ${error}`)
+    }
   }
 
   public async find (req: Request, res: Response): Promise<Response> {
-    const cpf:string = req.params.cpf
+    const tel:string = req.params.tel
 
-    const user = await User.findOne({ cpf: cpf })
+    try {
+      const user = await User.findOne({ telefone: tel })
 
-    return res.json(user)
+      return res.json(user)
+    } catch (error) {
+      return res.status(400).send(`Erro ao executar busca: ${error}`)
+    }
   }
 
   public async remove (req: Request, res: Response): Promise<Response> {
-    const cpf:string = req.params.cpf
+    const tel:string = req.params.tel
 
     try {
-      await User.findOneAndDelete({ cpf: cpf })
+      await User.findOneAndDelete({ telefone: tel })
     } catch (err) {
       return res.status(500).json({ error: err })
     }
@@ -36,11 +43,11 @@ class UserController {
 
   public async update (req: Request, res: Response): Promise<Response> {
     try {
-      await User.findOneAndUpdate({ cpf: req.body.cpf }, req.body)
+      await User.findOneAndUpdate({ telefone: req.body.tel }, req.body)
     } catch (error) {
       return res.json({ error: error })
     }
-    const user = await User.findOne({ cpf: req.body.cpf })
+    const user = await User.findOne({ telefone: req.body.tel })
     return res.json({ msg: 'Sucesso ao atualizar o registro', reg: user })
   }
 }
